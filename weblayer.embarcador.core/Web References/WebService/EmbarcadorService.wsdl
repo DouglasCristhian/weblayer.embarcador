@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.weblayer.com.br/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.weblayer.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">weblayer - Serviço de Integração App. Logistica</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.weblayer.com.br/">
+      <s:element name="RetornaPerformance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dt_inicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dt_fim" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="visao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="transportadora" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornaPerformanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornaPerformanceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarNota">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_empresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_transportadora" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_numeronota" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarNotaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarNotaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformarEntrega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_empresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_nota" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dt_entrega" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_usuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_versao_so" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_modelo_dispositivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_resolucao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformarEntregaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InformarEntregaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarCidades">
+        <s:complexType />
+      </s:element>
+      <s:element name="BuscarCidadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarCidadesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SimularFrete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="origemcodmun" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinocodmun" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="valornf" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="pesonf" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="volumenf" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SimularFreteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SimularFreteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RetornaPerformanceSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornaPerformance" />
+  </wsdl:message>
+  <wsdl:message name="RetornaPerformanceSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornaPerformanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarNotaSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarNota" />
+  </wsdl:message>
+  <wsdl:message name="BuscarNotaSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarNotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformarEntregaSoapIn">
+    <wsdl:part name="parameters" element="tns:InformarEntrega" />
+  </wsdl:message>
+  <wsdl:message name="InformarEntregaSoapOut">
+    <wsdl:part name="parameters" element="tns:InformarEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCidadesSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarCidades" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCidadesSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarCidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SimularFreteSoapIn">
+    <wsdl:part name="parameters" element="tns:SimularFrete" />
+  </wsdl:message>
+  <wsdl:message name="SimularFreteSoapOut">
+    <wsdl:part name="parameters" element="tns:SimularFreteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EmbarcadorServiceSoap">
+    <wsdl:operation name="RetornaPerformance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna uma lista com os dados da performance. Possiveis Visoes: TRANSPORTADORA, ESTADO, CANAL</wsdl:documentation>
+      <wsdl:input message="tns:RetornaPerformanceSoapIn" />
+      <wsdl:output message="tns:RetornaPerformanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna dados sobre o usuario</wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarNota">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna dados sobre a Nota</wsdl:documentation>
+      <wsdl:input message="tns:BuscarNotaSoapIn" />
+      <wsdl:output message="tns:BuscarNotaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformarEntrega">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Informar a entrega da Nota</wsdl:documentation>
+      <wsdl:input message="tns:InformarEntregaSoapIn" />
+      <wsdl:output message="tns:InformarEntregaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCidades">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca informações sobre cidade</wsdl:documentation>
+      <wsdl:input message="tns:BuscarCidadesSoapIn" />
+      <wsdl:output message="tns:BuscarCidadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SimularFrete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Simula o valor do frete</wsdl:documentation>
+      <wsdl:input message="tns:SimularFreteSoapIn" />
+      <wsdl:output message="tns:SimularFreteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmbarcadorServiceSoap" type="tns:EmbarcadorServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornaPerformance">
+      <soap:operation soapAction="http://www.weblayer.com.br/RetornaPerformance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://www.weblayer.com.br/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarNota">
+      <soap:operation soapAction="http://www.weblayer.com.br/BuscarNota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformarEntrega">
+      <soap:operation soapAction="http://www.weblayer.com.br/InformarEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCidades">
+      <soap:operation soapAction="http://www.weblayer.com.br/BuscarCidades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimularFrete">
+      <soap:operation soapAction="http://www.weblayer.com.br/SimularFrete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EmbarcadorServiceSoap12" type="tns:EmbarcadorServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornaPerformance">
+      <soap12:operation soapAction="http://www.weblayer.com.br/RetornaPerformance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://www.weblayer.com.br/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarNota">
+      <soap12:operation soapAction="http://www.weblayer.com.br/BuscarNota" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformarEntrega">
+      <soap12:operation soapAction="http://www.weblayer.com.br/InformarEntrega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCidades">
+      <soap12:operation soapAction="http://www.weblayer.com.br/BuscarCidades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimularFrete">
+      <soap12:operation soapAction="http://www.weblayer.com.br/SimularFrete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmbarcadorService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">weblayer - Serviço de Integração App. Logistica</wsdl:documentation>
+    <wsdl:port name="EmbarcadorServiceSoap" binding="tns:EmbarcadorServiceSoap">
+      <soap:address location="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/EmbarcadorService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EmbarcadorServiceSoap12" binding="tns:EmbarcadorServiceSoap12">
+      <soap12:address location="http://teste.weblayer.com.br/Logistica_Gdc/Mobile/EmbarcadorService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

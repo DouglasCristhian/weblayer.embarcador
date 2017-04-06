@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="400dp"
+    android:minHeight="500dp"
+    android:weightSum="1">
+
+  <TextView
+    android:id="@+id/lblInformarCidade"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight = "18dip"
+    android:layout_marginLeft = "18dip"
+    android:layout_marginTop="15dp"
+    android:textSize="18sp"
+    android:text="Informe a Cidade" />
+
+  <EditText
+    android:id="@+id/txtInformarCidade"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight = "18dip"
+    android:layout_marginLeft = "18dip"
+    android:layout_marginTop="5dp"
+    android:textSize="18sp"/>
+
+  <Button
+    android:id="@+id/btnPesquisarCidade"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight = "18dip"
+    android:layout_marginLeft = "18dip"
+    android:layout_marginTop="15dip"
+    android:text="Pesquisar"/>
+
+  <ListView
+      android:minWidth="25px"
+      android:minHeight="25px"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:focusable="false"
+      android:id="@+id/CidadeListView" />
+</LinearLayout>

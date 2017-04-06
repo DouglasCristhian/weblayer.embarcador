@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding ="18dip"            
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtRelativeLayout1">
+
+        <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="VALOR"
+              android:textSize="17sp"
+              android:focusable="false"
+              android:id="@+id/txtValor"
+            android:layout_below="@+id/txtNumNota"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/txtCliente"
+             android:text="NOME_CLIENTE"
+             android:textSize="19sp"
+             android:focusable="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+          android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNumNota"
+            android:text="NUM_NOTA"
+            android:textSize="18sp"
+            android:focusable="false"
+            android:layout_below="@+id/txtCliente"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:focusable="false"
+            android:id="@+id/txtSerie"
+            android:layout_below="@+id/txtNumNota"
+            android:layout_alignBaseline="@+id/txtNumNota"
+            android:layout_alignBottom="@+id/txtNumNota"
+            android:layout_alignParentLeft="true">
+
+        </TextView>
+
+
+        <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="17sp"
+              android:text="DATAENTREGA"
+              android:focusable="false"
+              android:id="@+id/txtDataEntrega"
+              android:layout_below="@+id/txtValor"
+              android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>
