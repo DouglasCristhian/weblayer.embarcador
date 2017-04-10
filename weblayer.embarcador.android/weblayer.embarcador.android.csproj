@@ -125,12 +125,12 @@
     <Compile Include="Activities\Frete\Activity_SimulacaoFrete.cs" />
     <Compile Include="Activities\Frete\Activity_SimulacaoFreteResultado.cs" />
     <Compile Include="Activities\Frete\Activity_TabelaFreteResultado.cs" />
-    <Compile Include="Activities\Menu\Activity_Ajuda.cs" />
     <Compile Include="Activities\Menu\Activity_Base.cs" />
     <Compile Include="Activities\Menu\Activity_Login.cs" />
     <Compile Include="Activities\Menu\Activity_Menu.cs" />
     <Compile Include="Activities\Menu\Activity_Novidades.cs" />
     <Compile Include="Activities\Menu\Activity_Sobre.cs" />
+    <Compile Include="Activities\Menu\Activity_SplashIntro.cs" />
     <Compile Include="Activities\Menu\Activity_WebView.cs" />
     <Compile Include="Activities\Performance\Activity_FiltrarPerformance.cs" />
     <Compile Include="Activities\Performance\Activity_Performance.cs" />
@@ -241,9 +241,6 @@
     <AndroidResource Include="Resources\layout\Activity_Sobre.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Activity_Ajuda.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_base.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +320,41 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Activity_WebView.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\SplashLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-land-hdpi\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-land-ldpi\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-land-mdpi\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-land-xhdpi\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-land-xxhdpi\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-port-hdpi\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-port-ldpi\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-port-mdpi\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-port-xhdpi\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-port-xxhdpi\SplashScreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

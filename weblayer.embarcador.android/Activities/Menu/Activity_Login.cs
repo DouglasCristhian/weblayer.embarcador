@@ -8,7 +8,7 @@ using weblayer.embarcador.core.BLL;
 
 namespace weblayer.embarcador.android.Activities
 {
-    [Activity(MainLauncher = true, NoHistory = false)]
+    [Activity(MainLauncher = false, NoHistory = false)]
     public class Activity_Login : Activity
     {
         public static string MyPREFERENCES = "MyPrefs";

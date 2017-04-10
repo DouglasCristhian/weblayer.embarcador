@@ -4,8 +4,9 @@ using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Webkit;
+using weblayer.embarcador.android.Activities;
 
-namespace weblayer.embarcador.android.Activities
+namespace weblayer.embarcador.android
 {
     [Activity(Label = "Ajuda")]
     public class Activity_WebView : Activity_Base
@@ -60,11 +61,19 @@ namespace weblayer.embarcador.android.Activities
             public override void OnPageStarted(WebView view, string url, Bitmap favicon)
             {
                 base.OnPageStarted(view, url, favicon);
+
+                //pd = new ProgressDialog(contextForDialog);
+                //pd.SetTitle("Aguarde...");
+                //pd.SetMessage("Conteúdo sendo carregado...");
+                //pd.Show();
             }
 
             public override bool ShouldOverrideUrlLoading(WebView view, string url)
             {
                 view.LoadUrl(url);
+
+                //if (pd.IsShowing)
+                //    pd.Dismiss();
                 return true;
             }
 
