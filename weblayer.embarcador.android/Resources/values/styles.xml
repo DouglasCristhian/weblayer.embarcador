@@ -32,4 +32,13 @@
     <item name="android:textSize">16sp</item>
   </style>
 
+  <style name="PopupTheme" parent="android:Theme.Holo.Light">
+    <item name="android:textColorPrimary">@android:color/black</item>
+    <item name="android:background">@color/grey</item>
+  </style>
+
+  <style name="SpinnerTheme" parent="android:Theme.Holo.Light">
+
+  </style>
+
 </resources>

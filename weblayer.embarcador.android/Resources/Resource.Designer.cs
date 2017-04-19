@@ -804,44 +804,44 @@ namespace weblayer.embarcador.android
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0a003e
-			public const int abc_background_cache_hint_selector_material_dark = 2131361854;
-			
 			// aapt resource value: 0x7f0a003f
-			public const int abc_background_cache_hint_selector_material_light = 2131361855;
+			public const int abc_background_cache_hint_selector_material_dark = 2131361855;
 			
 			// aapt resource value: 0x7f0a0040
-			public const int abc_btn_colored_borderless_text_material = 2131361856;
+			public const int abc_background_cache_hint_selector_material_light = 2131361856;
 			
 			// aapt resource value: 0x7f0a0041
-			public const int abc_btn_colored_text_material = 2131361857;
+			public const int abc_btn_colored_borderless_text_material = 2131361857;
 			
 			// aapt resource value: 0x7f0a0042
-			public const int abc_color_highlight_material = 2131361858;
+			public const int abc_btn_colored_text_material = 2131361858;
 			
 			// aapt resource value: 0x7f0a0043
-			public const int abc_hint_foreground_material_dark = 2131361859;
+			public const int abc_color_highlight_material = 2131361859;
 			
 			// aapt resource value: 0x7f0a0044
-			public const int abc_hint_foreground_material_light = 2131361860;
+			public const int abc_hint_foreground_material_dark = 2131361860;
+			
+			// aapt resource value: 0x7f0a0045
+			public const int abc_hint_foreground_material_light = 2131361861;
 			
 			// aapt resource value: 0x7f0a0001
 			public const int abc_input_method_navigation_guard = 2131361793;
 			
-			// aapt resource value: 0x7f0a0045
-			public const int abc_primary_text_disable_only_material_dark = 2131361861;
-			
 			// aapt resource value: 0x7f0a0046
-			public const int abc_primary_text_disable_only_material_light = 2131361862;
+			public const int abc_primary_text_disable_only_material_dark = 2131361862;
 			
 			// aapt resource value: 0x7f0a0047
-			public const int abc_primary_text_material_dark = 2131361863;
+			public const int abc_primary_text_disable_only_material_light = 2131361863;
 			
 			// aapt resource value: 0x7f0a0048
-			public const int abc_primary_text_material_light = 2131361864;
+			public const int abc_primary_text_material_dark = 2131361864;
 			
 			// aapt resource value: 0x7f0a0049
-			public const int abc_search_url_text = 2131361865;
+			public const int abc_primary_text_material_light = 2131361865;
+			
+			// aapt resource value: 0x7f0a004a
+			public const int abc_search_url_text = 2131361866;
 			
 			// aapt resource value: 0x7f0a0002
 			public const int abc_search_url_text_normal = 2131361794;
@@ -852,32 +852,32 @@ namespace weblayer.embarcador.android
 			// aapt resource value: 0x7f0a0004
 			public const int abc_search_url_text_selected = 2131361796;
 			
-			// aapt resource value: 0x7f0a004a
-			public const int abc_secondary_text_material_dark = 2131361866;
-			
 			// aapt resource value: 0x7f0a004b
-			public const int abc_secondary_text_material_light = 2131361867;
+			public const int abc_secondary_text_material_dark = 2131361867;
 			
 			// aapt resource value: 0x7f0a004c
-			public const int abc_tint_btn_checkable = 2131361868;
+			public const int abc_secondary_text_material_light = 2131361868;
 			
 			// aapt resource value: 0x7f0a004d
-			public const int abc_tint_default = 2131361869;
+			public const int abc_tint_btn_checkable = 2131361869;
 			
 			// aapt resource value: 0x7f0a004e
-			public const int abc_tint_edittext = 2131361870;
+			public const int abc_tint_default = 2131361870;
 			
 			// aapt resource value: 0x7f0a004f
-			public const int abc_tint_seek_thumb = 2131361871;
+			public const int abc_tint_edittext = 2131361871;
 			
 			// aapt resource value: 0x7f0a0050
-			public const int abc_tint_spinner = 2131361872;
+			public const int abc_tint_seek_thumb = 2131361872;
 			
 			// aapt resource value: 0x7f0a0051
-			public const int abc_tint_switch_thumb = 2131361873;
+			public const int abc_tint_spinner = 2131361873;
 			
 			// aapt resource value: 0x7f0a0052
-			public const int abc_tint_switch_track = 2131361874;
+			public const int abc_tint_switch_thumb = 2131361874;
+			
+			// aapt resource value: 0x7f0a0053
+			public const int abc_tint_switch_track = 2131361875;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int accent_material_dark = 2131361797;
@@ -921,14 +921,14 @@ namespace weblayer.embarcador.android
 			// aapt resource value: 0x7f0a0012
 			public const int button_material_light = 2131361810;
 			
-			// aapt resource value: 0x7f0a003d
-			public const int colorAccent = 2131361853;
-			
-			// aapt resource value: 0x7f0a003b
-			public const int colorPrimary = 2131361851;
+			// aapt resource value: 0x7f0a003e
+			public const int colorAccent = 2131361854;
 			
 			// aapt resource value: 0x7f0a003c
-			public const int colorPrimaryDark = 2131361852;
+			public const int colorPrimary = 2131361852;
+			
+			// aapt resource value: 0x7f0a003d
+			public const int colorPrimaryDark = 2131361853;
 			
 			// aapt resource value: 0x7f0a0013
 			public const int dim_foreground_disabled_material_dark = 2131361811;
@@ -947,6 +947,9 @@ namespace weblayer.embarcador.android
 			
 			// aapt resource value: 0x7f0a0018
 			public const int foreground_material_light = 2131361816;
+			
+			// aapt resource value: 0x7f0a003b
+			public const int grey = 2131361851;
 			
 			// aapt resource value: 0x7f0a0019
 			public const int highlighted_text_material_dark = 2131361817;
@@ -1047,11 +1050,11 @@ namespace weblayer.embarcador.android
 			// aapt resource value: 0x7f0a0038
 			public const int switch_thumb_disabled_material_light = 2131361848;
 			
-			// aapt resource value: 0x7f0a0053
-			public const int switch_thumb_material_dark = 2131361875;
-			
 			// aapt resource value: 0x7f0a0054
-			public const int switch_thumb_material_light = 2131361876;
+			public const int switch_thumb_material_dark = 2131361876;
+			
+			// aapt resource value: 0x7f0a0055
+			public const int switch_thumb_material_light = 2131361877;
 			
 			// aapt resource value: 0x7f0a0039
 			public const int switch_thumb_normal_material_dark = 2131361849;
@@ -3189,6 +3192,9 @@ namespace weblayer.embarcador.android
 			// aapt resource value: 0x7f080022
 			public const int Platform_Widget_AppCompat_Spinner = 2131230754;
 			
+			// aapt resource value: 0x7f080164
+			public const int PopupTheme = 2131231076;
+			
 			// aapt resource value: 0x7f080031
 			public const int RtlOverlay_DialogWindowTitle_AppCompat = 2131230769;
 			
@@ -3230,6 +3236,9 @@ namespace weblayer.embarcador.android
 			
 			// aapt resource value: 0x7f08003e
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131230782;
+			
+			// aapt resource value: 0x7f080165
+			public const int SpinnerTheme = 2131231077;
 			
 			// aapt resource value: 0x7f0800ce
 			public const int TextAppearance_AppCompat = 2131230926;
