@@ -1,10 +1,14 @@
+using Android;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
+using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using weblayer.embarcador.android.Adapters;
 using weblayer.embarcador.core.BLL;
 using weblayer.embarcador.core.Model;
@@ -22,6 +26,7 @@ namespace weblayer.embarcador.android.Activities
         Button btnEscanear;
         EditText txtNumNota;
         TextView EmpytText;
+        bool PROSSEGUIR;
 
         protected override int LayoutResource
         {
@@ -87,12 +92,60 @@ namespace weblayer.embarcador.android.Activities
             ListViewNota.EmptyView = EmpytText;
         }
 
-        private async void BtnEscanear_Click(object sender, EventArgs e)
+        private void BtnEscanear_Click(object sender, EventArgs e)
         {
-            scanner.UseCustomOverlay = false;
+            PermissoesGarantidas();
+            if (PROSSEGUIR == true)
+            {
+                Scanner();
+            }
+        }
+
+        public void PermissoesGarantidas()
+        {
+            if ((ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Granted))
+            {
+                PROSSEGUIR = true;
+                Scanner();
+            }
+            else
+            {
+                string[] permissionRequest = { Manifest.Permission.Camera };
+                RequestPermissions(permissionRequest, 0);
+            }
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            if ((requestCode == 0))
+            {
+                if (grantResults[0] == Permission.Granted)
+                {
+                    Scanner();
+                }
+                else
+                    Toast.MakeText(this, "Não é possível usar a câmera sem as devidas permissões", ToastLength.Long).Show();
+                return;
+            }
+        }
+
+        private async void Scanner()
+        {
+            ZXing.Result result = null;
             scanner.TopText = "Aguarde o escaneamento do código de barras";
 
-            var result = await scanner.Scan();
+            new Thread(new ThreadStart(delegate
+            {
+                while (result == null)
+                {
+                    scanner.AutoFocus();
+                    Thread.Sleep(2000);
+                }
+            })).Start();
+
+            result = await scanner.Scan();
             HandleScanResult(result);
         }
 
