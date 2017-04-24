@@ -9,7 +9,7 @@ using weblayer.embarcador.android.Helpers;
 
 namespace weblayer.embarcador.android.Activities
 {
-    [Activity(Label = "Simulação de Frete", MainLauncher = false)]
+    [Activity(Label = "Simulação do Custo do Frete", MainLauncher = false)]
     public class Activity_SimulacaoFrete : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;
