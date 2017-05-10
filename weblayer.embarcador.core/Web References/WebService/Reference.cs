@@ -13,98 +13,133 @@
 // 
 #pragma warning disable 1591
 
-namespace weblayer.embarcador.core.WebService
-{
+namespace weblayer.embarcador.core.WebService {
+    using System;
+    using System.Web.Services;
+    using System.Diagnostics;
+    using System.Web.Services.Protocols;
+    using System.Xml.Serialization;
+    using System.ComponentModel;
+    
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name = "EmbarcadorServiceSoap", Namespace = "http://www.weblayer.com.br/")]
-    public partial class EmbarcadorService : System.Web.Services.Protocols.SoapHttpClientProtocol
-    {
-
+    [System.Web.Services.WebServiceBindingAttribute(Name="EmbarcadorServiceSoap", Namespace="http://www.weblayer.com.br/")]
+    public partial class EmbarcadorService : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
+        private System.Threading.SendOrPostCallback RetornaCenarioEntregaOperationCompleted;
+        
         private System.Threading.SendOrPostCallback RetornaPerformanceOperationCompleted;
-
+        
         private System.Threading.SendOrPostCallback LoginOperationCompleted;
-
+        
         private System.Threading.SendOrPostCallback BuscarNotaOperationCompleted;
-
+        
         private System.Threading.SendOrPostCallback InformarEntregaOperationCompleted;
-
+        
         private System.Threading.SendOrPostCallback BuscarCidadesOperationCompleted;
-
+        
         private System.Threading.SendOrPostCallback SimularFreteOperationCompleted;
-
+        
         private bool useDefaultCredentialsSetExplicitly;
-
+        
         /// <remarks/>
-        public EmbarcadorService()
-        {
-            this.Url = "http://teste.weblayer.com.br/Logistica_Gdc/Mobile/EmbarcadorService.asmx";
-            if ((this.IsLocalFileSystemWebService(this.Url) == true))
-            {
+        public EmbarcadorService() {
+            this.Url = "http://teste.weblayer.com.br/Logistica_brgo/Mobile/EmbarcadorService.asmx";
+            if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
             }
-            else
-            {
+            else {
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
-
-        public new string Url
-        {
-            get
-            {
+        
+        public new string Url {
+            get {
                 return base.Url;
             }
-            set
-            {
-                if ((((this.IsLocalFileSystemWebService(base.Url) == true)
-                            && (this.useDefaultCredentialsSetExplicitly == false))
-                            && (this.IsLocalFileSystemWebService(value) == false)))
-                {
+            set {
+                if ((((this.IsLocalFileSystemWebService(base.Url) == true) 
+                            && (this.useDefaultCredentialsSetExplicitly == false)) 
+                            && (this.IsLocalFileSystemWebService(value) == false))) {
                     base.UseDefaultCredentials = false;
                 }
                 base.Url = value;
             }
         }
-
-        public new bool UseDefaultCredentials
-        {
-            get
-            {
+        
+        public new bool UseDefaultCredentials {
+            get {
                 return base.UseDefaultCredentials;
             }
-            set
-            {
+            set {
                 base.UseDefaultCredentials = value;
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
-
+        
+        /// <remarks/>
+        public event RetornaCenarioEntregaCompletedEventHandler RetornaCenarioEntregaCompleted;
+        
         /// <remarks/>
         public event RetornaPerformanceCompletedEventHandler RetornaPerformanceCompleted;
-
+        
         /// <remarks/>
         public event LoginCompletedEventHandler LoginCompleted;
-
+        
         /// <remarks/>
         public event BuscarNotaCompletedEventHandler BuscarNotaCompleted;
-
+        
         /// <remarks/>
         public event InformarEntregaCompletedEventHandler InformarEntregaCompleted;
-
+        
         /// <remarks/>
         public event BuscarCidadesCompletedEventHandler BuscarCidadesCompleted;
-
+        
         /// <remarks/>
         public event SimularFreteCompletedEventHandler SimularFreteCompleted;
-
+        
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/RetornaPerformance", RequestNamespace = "http://www.weblayer.com.br/", ResponseNamespace = "http://www.weblayer.com.br/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string RetornaPerformance(int empresa, System.DateTime dt_inicio, System.DateTime dt_fim, string visao, int transportadora)
-        {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/RetornaCenarioEntrega", RequestNamespace="http://www.weblayer.com.br/", ResponseNamespace="http://www.weblayer.com.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string RetornaCenarioEntrega(int empresa, System.DateTime dt_inicio, System.DateTime dt_fim, int transportadora) {
+            object[] results = this.Invoke("RetornaCenarioEntrega", new object[] {
+                        empresa,
+                        dt_inicio,
+                        dt_fim,
+                        transportadora});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RetornaCenarioEntregaAsync(int empresa, System.DateTime dt_inicio, System.DateTime dt_fim, int transportadora) {
+            this.RetornaCenarioEntregaAsync(empresa, dt_inicio, dt_fim, transportadora, null);
+        }
+        
+        /// <remarks/>
+        public void RetornaCenarioEntregaAsync(int empresa, System.DateTime dt_inicio, System.DateTime dt_fim, int transportadora, object userState) {
+            if ((this.RetornaCenarioEntregaOperationCompleted == null)) {
+                this.RetornaCenarioEntregaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRetornaCenarioEntregaOperationCompleted);
+            }
+            this.InvokeAsync("RetornaCenarioEntrega", new object[] {
+                        empresa,
+                        dt_inicio,
+                        dt_fim,
+                        transportadora}, this.RetornaCenarioEntregaOperationCompleted, userState);
+        }
+        
+        private void OnRetornaCenarioEntregaOperationCompleted(object arg) {
+            if ((this.RetornaCenarioEntregaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RetornaCenarioEntregaCompleted(this, new RetornaCenarioEntregaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/RetornaPerformance", RequestNamespace="http://www.weblayer.com.br/", ResponseNamespace="http://www.weblayer.com.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string RetornaPerformance(int empresa, System.DateTime dt_inicio, System.DateTime dt_fim, string visao, int transportadora) {
             object[] results = this.Invoke("RetornaPerformance", new object[] {
                         empresa,
                         dt_inicio,
@@ -113,18 +148,15 @@ namespace weblayer.embarcador.core.WebService
                         transportadora});
             return ((string)(results[0]));
         }
-
+        
         /// <remarks/>
-        public void RetornaPerformanceAsync(int empresa, System.DateTime dt_inicio, System.DateTime dt_fim, string visao, int transportadora)
-        {
+        public void RetornaPerformanceAsync(int empresa, System.DateTime dt_inicio, System.DateTime dt_fim, string visao, int transportadora) {
             this.RetornaPerformanceAsync(empresa, dt_inicio, dt_fim, visao, transportadora, null);
         }
-
+        
         /// <remarks/>
-        public void RetornaPerformanceAsync(int empresa, System.DateTime dt_inicio, System.DateTime dt_fim, string visao, int transportadora, object userState)
-        {
-            if ((this.RetornaPerformanceOperationCompleted == null))
-            {
+        public void RetornaPerformanceAsync(int empresa, System.DateTime dt_inicio, System.DateTime dt_fim, string visao, int transportadora, object userState) {
+            if ((this.RetornaPerformanceOperationCompleted == null)) {
                 this.RetornaPerformanceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRetornaPerformanceOperationCompleted);
             }
             this.InvokeAsync("RetornaPerformance", new object[] {
@@ -134,75 +166,63 @@ namespace weblayer.embarcador.core.WebService
                         visao,
                         transportadora}, this.RetornaPerformanceOperationCompleted, userState);
         }
-
-        private void OnRetornaPerformanceOperationCompleted(object arg)
-        {
-            if ((this.RetornaPerformanceCompleted != null))
-            {
+        
+        private void OnRetornaPerformanceOperationCompleted(object arg) {
+            if ((this.RetornaPerformanceCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.RetornaPerformanceCompleted(this, new RetornaPerformanceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-
+        
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/Login", RequestNamespace = "http://www.weblayer.com.br/", ResponseNamespace = "http://www.weblayer.com.br/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string Login(string usuario, string senha)
-        {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/Login", RequestNamespace="http://www.weblayer.com.br/", ResponseNamespace="http://www.weblayer.com.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string Login(string usuario, string senha) {
             object[] results = this.Invoke("Login", new object[] {
                         usuario,
                         senha});
             return ((string)(results[0]));
         }
-
+        
         /// <remarks/>
-        public void LoginAsync(string usuario, string senha)
-        {
+        public void LoginAsync(string usuario, string senha) {
             this.LoginAsync(usuario, senha, null);
         }
-
+        
         /// <remarks/>
-        public void LoginAsync(string usuario, string senha, object userState)
-        {
-            if ((this.LoginOperationCompleted == null))
-            {
+        public void LoginAsync(string usuario, string senha, object userState) {
+            if ((this.LoginOperationCompleted == null)) {
                 this.LoginOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLoginOperationCompleted);
             }
             this.InvokeAsync("Login", new object[] {
                         usuario,
                         senha}, this.LoginOperationCompleted, userState);
         }
-
-        private void OnLoginOperationCompleted(object arg)
-        {
-            if ((this.LoginCompleted != null))
-            {
+        
+        private void OnLoginOperationCompleted(object arg) {
+            if ((this.LoginCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.LoginCompleted(this, new LoginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-
+        
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/BuscarNota", RequestNamespace = "http://www.weblayer.com.br/", ResponseNamespace = "http://www.weblayer.com.br/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string BuscarNota(int id_empresa, int id_transportadora, string ds_numeronota)
-        {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/BuscarNota", RequestNamespace="http://www.weblayer.com.br/", ResponseNamespace="http://www.weblayer.com.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string BuscarNota(int id_empresa, int id_transportadora, string ds_numeronota) {
             object[] results = this.Invoke("BuscarNota", new object[] {
                         id_empresa,
                         id_transportadora,
                         ds_numeronota});
             return ((string)(results[0]));
         }
-
+        
         /// <remarks/>
-        public void BuscarNotaAsync(int id_empresa, int id_transportadora, string ds_numeronota)
-        {
+        public void BuscarNotaAsync(int id_empresa, int id_transportadora, string ds_numeronota) {
             this.BuscarNotaAsync(id_empresa, id_transportadora, ds_numeronota, null);
         }
-
+        
         /// <remarks/>
-        public void BuscarNotaAsync(int id_empresa, int id_transportadora, string ds_numeronota, object userState)
-        {
-            if ((this.BuscarNotaOperationCompleted == null))
-            {
+        public void BuscarNotaAsync(int id_empresa, int id_transportadora, string ds_numeronota, object userState) {
+            if ((this.BuscarNotaOperationCompleted == null)) {
                 this.BuscarNotaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuscarNotaOperationCompleted);
             }
             this.InvokeAsync("BuscarNota", new object[] {
@@ -210,20 +230,17 @@ namespace weblayer.embarcador.core.WebService
                         id_transportadora,
                         ds_numeronota}, this.BuscarNotaOperationCompleted, userState);
         }
-
-        private void OnBuscarNotaOperationCompleted(object arg)
-        {
-            if ((this.BuscarNotaCompleted != null))
-            {
+        
+        private void OnBuscarNotaOperationCompleted(object arg) {
+            if ((this.BuscarNotaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.BuscarNotaCompleted(this, new BuscarNotaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-
+        
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/InformarEntrega", RequestNamespace = "http://www.weblayer.com.br/", ResponseNamespace = "http://www.weblayer.com.br/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string InformarEntrega(int id_empresa, int id_nota, System.DateTime dt_entrega, int id_usuario, string ds_versao_so, string ds_ip, string ds_modelo_dispositivo, string ds_resolucao)
-        {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/InformarEntrega", RequestNamespace="http://www.weblayer.com.br/", ResponseNamespace="http://www.weblayer.com.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string InformarEntrega(int id_empresa, int id_nota, System.DateTime dt_entrega, int id_usuario, string ds_versao_so, string ds_ip, string ds_modelo_dispositivo, string ds_resolucao) {
             object[] results = this.Invoke("InformarEntrega", new object[] {
                         id_empresa,
                         id_nota,
@@ -235,18 +252,15 @@ namespace weblayer.embarcador.core.WebService
                         ds_resolucao});
             return ((string)(results[0]));
         }
-
+        
         /// <remarks/>
-        public void InformarEntregaAsync(int id_empresa, int id_nota, System.DateTime dt_entrega, int id_usuario, string ds_versao_so, string ds_ip, string ds_modelo_dispositivo, string ds_resolucao)
-        {
+        public void InformarEntregaAsync(int id_empresa, int id_nota, System.DateTime dt_entrega, int id_usuario, string ds_versao_so, string ds_ip, string ds_modelo_dispositivo, string ds_resolucao) {
             this.InformarEntregaAsync(id_empresa, id_nota, dt_entrega, id_usuario, ds_versao_so, ds_ip, ds_modelo_dispositivo, ds_resolucao, null);
         }
-
+        
         /// <remarks/>
-        public void InformarEntregaAsync(int id_empresa, int id_nota, System.DateTime dt_entrega, int id_usuario, string ds_versao_so, string ds_ip, string ds_modelo_dispositivo, string ds_resolucao, object userState)
-        {
-            if ((this.InformarEntregaOperationCompleted == null))
-            {
+        public void InformarEntregaAsync(int id_empresa, int id_nota, System.DateTime dt_entrega, int id_usuario, string ds_versao_so, string ds_ip, string ds_modelo_dispositivo, string ds_resolucao, object userState) {
+            if ((this.InformarEntregaOperationCompleted == null)) {
                 this.InformarEntregaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInformarEntregaOperationCompleted);
             }
             this.InvokeAsync("InformarEntrega", new object[] {
@@ -259,53 +273,44 @@ namespace weblayer.embarcador.core.WebService
                         ds_modelo_dispositivo,
                         ds_resolucao}, this.InformarEntregaOperationCompleted, userState);
         }
-
-        private void OnInformarEntregaOperationCompleted(object arg)
-        {
-            if ((this.InformarEntregaCompleted != null))
-            {
+        
+        private void OnInformarEntregaOperationCompleted(object arg) {
+            if ((this.InformarEntregaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.InformarEntregaCompleted(this, new InformarEntregaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-
+        
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/BuscarCidades", RequestNamespace = "http://www.weblayer.com.br/", ResponseNamespace = "http://www.weblayer.com.br/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string BuscarCidades()
-        {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/BuscarCidades", RequestNamespace="http://www.weblayer.com.br/", ResponseNamespace="http://www.weblayer.com.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string BuscarCidades() {
             object[] results = this.Invoke("BuscarCidades", new object[0]);
             return ((string)(results[0]));
         }
-
+        
         /// <remarks/>
-        public void BuscarCidadesAsync()
-        {
+        public void BuscarCidadesAsync() {
             this.BuscarCidadesAsync(null);
         }
-
+        
         /// <remarks/>
-        public void BuscarCidadesAsync(object userState)
-        {
-            if ((this.BuscarCidadesOperationCompleted == null))
-            {
+        public void BuscarCidadesAsync(object userState) {
+            if ((this.BuscarCidadesOperationCompleted == null)) {
                 this.BuscarCidadesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuscarCidadesOperationCompleted);
             }
             this.InvokeAsync("BuscarCidades", new object[0], this.BuscarCidadesOperationCompleted, userState);
         }
-
-        private void OnBuscarCidadesOperationCompleted(object arg)
-        {
-            if ((this.BuscarCidadesCompleted != null))
-            {
+        
+        private void OnBuscarCidadesOperationCompleted(object arg) {
+            if ((this.BuscarCidadesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.BuscarCidadesCompleted(this, new BuscarCidadesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-
+        
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/SimularFrete", RequestNamespace = "http://www.weblayer.com.br/", ResponseNamespace = "http://www.weblayer.com.br/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string SimularFrete(int id_empresa, string origemcodmun, string destinocodmun, decimal valornf, decimal pesonf, decimal volumenf)
-        {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.weblayer.com.br/SimularFrete", RequestNamespace="http://www.weblayer.com.br/", ResponseNamespace="http://www.weblayer.com.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SimularFrete(int id_empresa, string origemcodmun, string destinocodmun, decimal valornf, decimal pesonf, decimal volumenf) {
             object[] results = this.Invoke("SimularFrete", new object[] {
                         id_empresa,
                         origemcodmun,
@@ -315,18 +320,15 @@ namespace weblayer.embarcador.core.WebService
                         volumenf});
             return ((string)(results[0]));
         }
-
+        
         /// <remarks/>
-        public void SimularFreteAsync(int id_empresa, string origemcodmun, string destinocodmun, decimal valornf, decimal pesonf, decimal volumenf)
-        {
+        public void SimularFreteAsync(int id_empresa, string origemcodmun, string destinocodmun, decimal valornf, decimal pesonf, decimal volumenf) {
             this.SimularFreteAsync(id_empresa, origemcodmun, destinocodmun, valornf, pesonf, volumenf, null);
         }
-
+        
         /// <remarks/>
-        public void SimularFreteAsync(int id_empresa, string origemcodmun, string destinocodmun, decimal valornf, decimal pesonf, decimal volumenf, object userState)
-        {
-            if ((this.SimularFreteOperationCompleted == null))
-            {
+        public void SimularFreteAsync(int id_empresa, string origemcodmun, string destinocodmun, decimal valornf, decimal pesonf, decimal volumenf, object userState) {
+            if ((this.SimularFreteOperationCompleted == null)) {
                 this.SimularFreteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSimularFreteOperationCompleted);
             }
             this.InvokeAsync("SimularFrete", new object[] {
@@ -337,213 +339,209 @@ namespace weblayer.embarcador.core.WebService
                         pesonf,
                         volumenf}, this.SimularFreteOperationCompleted, userState);
         }
-
-        private void OnSimularFreteOperationCompleted(object arg)
-        {
-            if ((this.SimularFreteCompleted != null))
-            {
+        
+        private void OnSimularFreteOperationCompleted(object arg) {
+            if ((this.SimularFreteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SimularFreteCompleted(this, new SimularFreteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-
+        
         /// <remarks/>
-        public new void CancelAsync(object userState)
-        {
+        public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
-
-        private bool IsLocalFileSystemWebService(string url)
-        {
-            if (((url == null)
-                        || (url == string.Empty)))
-            {
+        
+        private bool IsLocalFileSystemWebService(string url) {
+            if (((url == null) 
+                        || (url == string.Empty))) {
                 return false;
             }
             System.Uri wsUri = new System.Uri(url);
-            if (((wsUri.Port >= 1024)
-                        && (string.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) == 0)))
-            {
+            if (((wsUri.Port >= 1024) 
+                        && (string.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) == 0))) {
                 return true;
             }
             return false;
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void RetornaCenarioEntregaCompletedEventHandler(object sender, RetornaCenarioEntregaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RetornaCenarioEntregaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RetornaCenarioEntregaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     public delegate void RetornaPerformanceCompletedEventHandler(object sender, RetornaPerformanceCompletedEventArgs e);
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class RetornaPerformanceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
-    {
-
+    public partial class RetornaPerformanceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
         private object[] results;
-
-        internal RetornaPerformanceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
-                base(exception, cancelled, userState)
-        {
+        
+        internal RetornaPerformanceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
             this.results = results;
         }
-
+        
         /// <remarks/>
-        public string Result
-        {
-            get
-            {
+        public string Result {
+            get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     public delegate void LoginCompletedEventHandler(object sender, LoginCompletedEventArgs e);
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
-    {
-
+    public partial class LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
         private object[] results;
-
-        internal LoginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
-                base(exception, cancelled, userState)
-        {
+        
+        internal LoginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
             this.results = results;
         }
-
+        
         /// <remarks/>
-        public string Result
-        {
-            get
-            {
+        public string Result {
+            get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     public delegate void BuscarNotaCompletedEventHandler(object sender, BuscarNotaCompletedEventArgs e);
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class BuscarNotaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
-    {
-
+    public partial class BuscarNotaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
         private object[] results;
-
-        internal BuscarNotaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
-                base(exception, cancelled, userState)
-        {
+        
+        internal BuscarNotaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
             this.results = results;
         }
-
+        
         /// <remarks/>
-        public string Result
-        {
-            get
-            {
+        public string Result {
+            get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     public delegate void InformarEntregaCompletedEventHandler(object sender, InformarEntregaCompletedEventArgs e);
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class InformarEntregaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
-    {
-
+    public partial class InformarEntregaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
         private object[] results;
-
-        internal InformarEntregaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
-                base(exception, cancelled, userState)
-        {
+        
+        internal InformarEntregaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
             this.results = results;
         }
-
+        
         /// <remarks/>
-        public string Result
-        {
-            get
-            {
+        public string Result {
+            get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     public delegate void BuscarCidadesCompletedEventHandler(object sender, BuscarCidadesCompletedEventArgs e);
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class BuscarCidadesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
-    {
-
+    public partial class BuscarCidadesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
         private object[] results;
-
-        internal BuscarCidadesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
-                base(exception, cancelled, userState)
-        {
+        
+        internal BuscarCidadesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
             this.results = results;
         }
-
+        
         /// <remarks/>
-        public string Result
-        {
-            get
-            {
+        public string Result {
+            get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     public delegate void SimularFreteCompletedEventHandler(object sender, SimularFreteCompletedEventArgs e);
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class SimularFreteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
-    {
-
+    public partial class SimularFreteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
         private object[] results;
-
-        internal SimularFreteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
-                base(exception, cancelled, userState)
-        {
+        
+        internal SimularFreteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
             this.results = results;
         }
-
+        
         /// <remarks/>
-        public string Result
-        {
-            get
-            {
+        public string Result {
+            get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
             }
