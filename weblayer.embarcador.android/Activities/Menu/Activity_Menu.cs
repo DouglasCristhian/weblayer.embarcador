@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using System.Collections.Generic;
+using weblayer.embarcador.android.Activities.Menu;
 using weblayer.embarcador.core.BLL;
 
 namespace weblayer.embarcador.android.Activities
@@ -88,6 +89,10 @@ namespace weblayer.embarcador.android.Activities
 
                 case Resource.Id.action_ajuda:
                     StartActivity(typeof(Activity_WebView));
+                    break;
+
+                case Resource.Id.action_contato:
+                    StartActivity(typeof(Activity_Contato));
                     break;
 
                 case Resource.Id.action_sair:

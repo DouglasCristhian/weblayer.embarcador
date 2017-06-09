@@ -54,6 +54,7 @@ namespace weblayer.embarcador.android.Activities
             menu.RemoveItem(Resource.Id.action_sobre);
             menu.RemoveItem(Resource.Id.action_ajuda);
             menu.RemoveItem(Resource.Id.action_sair);
+            menu.RemoveItem(Resource.Id.action_contato);
             return true;
         }
 

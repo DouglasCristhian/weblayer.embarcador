@@ -43,6 +43,7 @@ namespace weblayer.embarcador.android.Activities
             MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
             menu.RemoveItem(Resource.Id.action_sobre);
             menu.RemoveItem(Resource.Id.action_sair);
+            menu.RemoveItem(Resource.Id.action_contato);
             return true;
         }
 

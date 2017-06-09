@@ -25,6 +25,7 @@ namespace weblayer.embarcador.android.Activities
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_filtrar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_contato);
 
             FindViews();
             BindData();

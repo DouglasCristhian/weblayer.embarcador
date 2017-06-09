@@ -109,6 +109,7 @@ namespace weblayer.embarcador.android.Activities
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_sobre);
             toolbar.Menu.RemoveItem(Resource.Id.action_filtrar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_contato);
         }
 
         private void BindData()

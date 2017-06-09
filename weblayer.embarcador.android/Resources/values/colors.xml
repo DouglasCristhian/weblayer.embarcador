@@ -6,4 +6,6 @@
   <color name="colorPrimaryDark">#423E3E</color>
   <color name="colorAccent">#423E3E</color>
 
+  <color name="button_focused">#DBDBDB</color>
+
 </resources>
