@@ -44,8 +44,12 @@ namespace weblayer.embarcador.android.Activities
         private string Novidades()
         {
             string Novidades;
-            Novidades = " 1.0 (23/01/2017):"
-                                     + "\n\n    [Novo] Implementação do leitor de código de barras"
+
+            Novidades = " 1.1 (10/05/2017):"
+                                     + "\n  [Melhorias] Correção na exibição no gráfico de cenário de entrega";
+
+            Novidades = Novidades  + " \n\n 1.0 (23/01/2017):"
+                                     + "\n    [Novo] Implementação do leitor de código de barras"
                                      + "\n    [Melhorias] Atualização da interface";
 
 

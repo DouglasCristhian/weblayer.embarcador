@@ -25,8 +25,6 @@ namespace weblayer.embarcador.core.BLL
 
                 var retorno = service.BuscarNota(UsuarioManager.Instance.usuario.id_empresa, UsuarioManager.Instance.usuario.id_transportadora, filtro);
                 var Notas = Newtonsoft.Json.JsonConvert.DeserializeObject<List<NotaFiscal>>(retorno);
-                // var Notas = Newtonsoft.Json.JsonConvert.DeserializeObject<List<NotaFiscal>>(retorno).Where(x => x.ds_numeronota.Contains(filtro.ToString())).ToList();
-
 
                 return Notas;
 

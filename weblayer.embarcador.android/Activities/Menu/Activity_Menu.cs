@@ -63,7 +63,7 @@ namespace weblayer.embarcador.android.Activities
                 StartActivity(typeof(Activity_CenarioEntrega));
             }
 
-            if (GetData()[(int)e.Id] == "Simular Frete")
+            if (GetData()[(int)e.Id] == "Simular Custo do Frete")
             {
                 StartActivity(typeof(Activity_SimulacaoFrete));
             }
@@ -128,7 +128,7 @@ namespace weblayer.embarcador.android.Activities
                 lista.Add("Performance do Transportador");
                 lista.Add("Informar Entrega");
                 lista.Add("Cenário de Entrega");
-                lista.Add("Simular Frete");
+                lista.Add("Simular Custo do Frete");
             }
 
             if (UsuarioManager.Instance.usuario.ds_perfil == "TRANSPORTADOR")

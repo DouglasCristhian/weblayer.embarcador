@@ -30,7 +30,7 @@ namespace weblayer.embarcador.android
 
         private void LoadActivity()
         {
-            System.Threading.Thread.Sleep(5000); //Simulate a long pause    
+            System.Threading.Thread.Sleep(2000); //2 segundos
             RunOnUiThread(() => StartActivity(typeof(Activity_Login)));
         }
     }

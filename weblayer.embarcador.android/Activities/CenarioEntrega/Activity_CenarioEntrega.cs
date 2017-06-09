@@ -99,32 +99,9 @@ namespace weblayer.embarcador.android.Activities
             BindData();
         }
 
-        //public override void OnConfigurationChanged(Android.Content.Res.Configuration newConfig)
-        //{
-        //    base.OnConfigurationChanged(newConfig);
-
-        //    if (newConfig.Orientation == Android.Content.Res.Orientation.Portrait)
-        //    {
-        //        view.Model = GraficoBarras(int.Parse(AnoSelecionado), int.Parse(MesSelecionado));
-        //    }
-        //    else if (newConfig.Orientation == Android.Content.Res.Orientation.Landscape)
-        //    {
-        //        view.Model = GraficoColunas(int.Parse(AnoSelecionado), int.Parse(MesSelecionado));
-        //    }
-        //}
-
         private void BindData()
         {
             view.Model = GraficoBarras(int.Parse(AnoSelecionado), int.Parse(MesSelecionado));
-
-            //if (this.Resources.Configuration.Orientation == Android.Content.Res.Orientation.Portrait)
-            //{
-            //    view.Model = GraficoBarras(int.Parse(AnoSelecionado), int.Parse(MesSelecionado));
-            //}
-            //else if (this.Resources.Configuration.Orientation == Android.Content.Res.Orientation.Landscape)
-            //{
-            //    view.Model = GraficoColunas(int.Parse(AnoSelecionado), int.Parse(MesSelecionado));
-            //}
         }
 
         private PlotModel GraficoColunas(int ano, int mes)
@@ -143,12 +120,10 @@ namespace weblayer.embarcador.android.Activities
             List<CenarioEntrega> list = manager.GetCenario2(ano, mes);
 
             List<CenarioEntrega> SortedList = list.OrderBy(o => o.nr_dias).ToList();
-            //CenarioEntrega intMax = SortedList.Max();
 
             var categoryAxis1 = new CategoryAxis()
             {
                 Title = "Período da Entrega",
-                //AbsoluteMaximum = intMax.nr_dias,
                 MaximumRange = 15
             };
 
@@ -205,30 +180,27 @@ namespace weblayer.embarcador.android.Activities
             CenarioEntregaManager manager = new CenarioEntregaManager();
             List<CenarioEntrega> list = manager.GetCenario2(ano, mes);
 
-            List<CenarioEntrega> SortedList = list.OrderBy(o => -o.nr_dias).ToList();
+            List<CenarioEntrega> SortedList = list.OrderByDescending(o => -o.nr_dias).ToList();
 
-            var barSeries = new BarSeries { Title = "Cenário de Entrega", StrokeColor = OxyColors.Black, StrokeThickness = 1 };
+            var barSeries = new BarSeries { Title = "Entrega até o Prazo", StrokeColor = OxyColors.Black, StrokeThickness = 1 };
             var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
 
             for (int i = 0; i < SortedList.Count; i++)
             {
-                if (SortedList[i].nr_dias >= 0)
-                {
-                    categoryAxis.Labels.Add((SortedList[i].nr_dias * 1).ToString() + " dias");
-                    barSeries.Items.Add(new BarItem(SortedList[i].nr_notas) { Color = OxyColors.Green });
-                }
-            }
-
-            int valorMaximoX = SortedList.Max(r => r.nr_notas) + 10;
-
-            for (int i = 0; i < SortedList.Count; i++)
-            {
-                if (SortedList[i].nr_dias < 0)
+                if (SortedList[i].nr_dias <= 0)
                 {
                     categoryAxis.Labels.Add((SortedList[i].nr_dias * -1).ToString() + " dias");
+                    barSeries.Items.Add(new BarItem(SortedList[i].nr_notas) { Color = OxyColors.Green });
+                }
+                if (SortedList[i].nr_dias > 0)
+                {
+                    categoryAxis.Labels.Add((SortedList[i].nr_dias * 1).ToString() + " dias");
                     barSeries.Items.Add(new BarItem(SortedList[i].nr_notas) { Color = OxyColors.Red });
                 }
             }
+
+
+            int valorMaximoX = SortedList.Max(r => r.nr_notas) + 10;
 
             categoryAxis.AbsoluteMinimum = -1;
             categoryAxis.AbsoluteMaximum = SortedList.Count;
