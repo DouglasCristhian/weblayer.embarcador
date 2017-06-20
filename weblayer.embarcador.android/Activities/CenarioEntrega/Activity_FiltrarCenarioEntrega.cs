@@ -44,7 +44,7 @@ namespace weblayer.embarcador.android.Activities
             spinnerAnoCenarioEntrega.Adapter = new ArrayAdapter<mSpinner>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, spinnerAnoLista);
             spinnerMesCenarioEntrega.Adapter = new ArrayAdapter<mSpinner>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, spinnerMesLista);
 
-            var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldReadable);
+            var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.Private);
             MesEntregaPosicao = int.Parse(prefs.GetString("PrefMesCenarioEntrega", DateTime.Now.Month.ToString()));
             AnoEntregaPosicao = prefs.GetInt("PrefAnoCenarioEntrega", 0);
 
@@ -148,7 +148,7 @@ namespace weblayer.embarcador.android.Activities
 
         private void SaveForm()
         {
-            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.WorldWriteable);
+            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.Private);
             var prefEditor = prefs.Edit();
 
             string posicaoMes = spinnerMesCenarioEntrega.SelectedItemPosition.ToString();

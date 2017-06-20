@@ -57,7 +57,7 @@ namespace weblayer.embarcador.android.Activities
 
         private void Filtro_Spinner()
         {
-            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.WorldWriteable);
+            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.Private);
             var prefEditor = prefs.Edit();
 
             string ano = prefs.GetString("PrefAnoCenarioEntregaString", DateTime.Now.Year.ToString());
@@ -199,8 +199,9 @@ namespace weblayer.embarcador.android.Activities
                 }
             }
 
-
-            int valorMaximoX = SortedList.Max(r => r.nr_notas) + 10;
+            int valorMaximoX=0;
+            if (SortedList.Count>0)
+                valorMaximoX = SortedList.Max(r => r.nr_notas) + 10;
 
             categoryAxis.AbsoluteMinimum = -1;
             categoryAxis.AbsoluteMaximum = SortedList.Count;

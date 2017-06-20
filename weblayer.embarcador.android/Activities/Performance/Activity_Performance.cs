@@ -60,7 +60,7 @@ namespace weblayer.embarcador.android.Activities
 
         private void Filtro_Spinner()
         {
-            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.WorldWriteable);
+            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.Private);
             var prefEditor = prefs.Edit();
 
             string ano = prefs.GetString("PrefAnoPerformanceString", DateTime.Now.Year.ToString());

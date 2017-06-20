@@ -45,7 +45,11 @@ namespace weblayer.embarcador.android.Activities
         {
             string Novidades;
 
-            Novidades = " 1.1 (10/05/2017):"
+            Novidades = " 1.2 (19/06/2017):"
+                                     + "\n  [Melhorias] Adicionado o menmu de  Contato";
+
+
+            Novidades = Novidades  + " \n\n  1.1 (10/05/2017):"
                                      + "\n  [Melhorias] Correção na exibição no gráfico de cenário de entrega";
 
             Novidades = Novidades  + " \n\n 1.0 (23/01/2017):"

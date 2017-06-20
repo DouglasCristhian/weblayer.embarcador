@@ -131,7 +131,7 @@ namespace weblayer.embarcador.android.Activities
         private void RestoreForm()
         {
 
-            var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldReadable);
+            var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.Private);
             var somePref = prefs.GetString("Login", "");
             edtUsuario.Text = somePref;
 
@@ -147,7 +147,7 @@ namespace weblayer.embarcador.android.Activities
         private void SaveForm()
         {
 
-            var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldWriteable);
+            var prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.Private);
             var prefEditor = prefs.Edit();
             prefEditor.PutString("Login", edtUsuario.Text);
             prefEditor.PutString("Senha", edtSenha.Text);

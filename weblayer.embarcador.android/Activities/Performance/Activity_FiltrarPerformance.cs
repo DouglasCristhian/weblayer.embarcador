@@ -45,7 +45,7 @@ namespace weblayer.embarcador.android.Activities
             spinnerAnoPerformance.Adapter = new ArrayAdapter<mSpinner>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, spinnerAnoLista);
             spinnerMesPerformance.Adapter = new ArrayAdapter<mSpinner>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, spinnerMesLista);
 
-            prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.WorldReadable);
+            prefs = Application.Context.GetSharedPreferences(MyPREFERENCES, FileCreationMode.Private);
             MesPerformancePosicao = int.Parse(prefs.GetString("PrefMesPerformancePosicao", DateTime.Now.Month.ToString()));
             AnoPerformancePosicao = prefs.GetInt("PrefAnoPerformancePosicao", 0);
 
@@ -149,7 +149,7 @@ namespace weblayer.embarcador.android.Activities
 
         private void SaveForm()
         {
-            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.WorldWriteable);
+            var prefs = Application.Context.GetSharedPreferences("MyPrefs", FileCreationMode.Private);
             var prefEditor = prefs.Edit();
 
             string posicaoMes = spinnerMesPerformance.SelectedItemPosition.ToString();
