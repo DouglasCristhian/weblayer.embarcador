@@ -179,39 +179,42 @@ namespace weblayer.embarcador.android.Activities
             CenarioEntrega ent = new CenarioEntrega();
             CenarioEntregaManager manager = new CenarioEntregaManager();
             List<CenarioEntrega> list = manager.GetCenario2(ano, mes);
-
-            List<CenarioEntrega> SortedList = list.OrderByDescending(o => -o.nr_dias).ToList();
-
-            var barSeries = new BarSeries { Title = "Entrega até o Prazo", StrokeColor = OxyColors.Black, StrokeThickness = 1 };
-            var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
-
-            for (int i = 0; i < SortedList.Count; i++)
+            if (list.Count > 0)
             {
-                if (SortedList[i].nr_dias <= 0)
-                {
-                    categoryAxis.Labels.Add((SortedList[i].nr_dias * -1).ToString() + " dias");
-                    barSeries.Items.Add(new BarItem(SortedList[i].nr_notas) { Color = OxyColors.Green });
-                }
-                if (SortedList[i].nr_dias > 0)
-                {
-                    categoryAxis.Labels.Add((SortedList[i].nr_dias * 1).ToString() + " dias");
-                    barSeries.Items.Add(new BarItem(SortedList[i].nr_notas) { Color = OxyColors.Red });
-                }
-            }
+                List<CenarioEntrega> SortedList = list.OrderByDescending(o => -o.nr_dias).ToList();
 
-            int valorMaximoX=0;
-            if (SortedList.Count>0)
+                var barSeries = new BarSeries { Title = "Entrega até o Prazo", StrokeColor = OxyColors.Black, StrokeThickness = 1 };
+                var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
+
+                for (int i = 0; i < SortedList.Count; i++)
+                {
+                    if (SortedList[i].nr_dias <= 0)
+                    {
+                        categoryAxis.Labels.Add((SortedList[i].nr_dias * -1).ToString() + " dias");
+                        barSeries.Items.Add(new BarItem(SortedList[i].nr_notas) { Color = OxyColors.Green });
+                    }
+                    if (SortedList[i].nr_dias > 0)
+                    {
+                        categoryAxis.Labels.Add((SortedList[i].nr_dias * 1).ToString() + " dias");
+                        barSeries.Items.Add(new BarItem(SortedList[i].nr_notas) { Color = OxyColors.Red });
+                    }
+                }
+
+                int valorMaximoX = 0;
                 valorMaximoX = SortedList.Max(r => r.nr_notas) + 10;
 
-            categoryAxis.AbsoluteMinimum = -1;
-            categoryAxis.AbsoluteMaximum = SortedList.Count;
+                categoryAxis.AbsoluteMinimum = -1;
+                categoryAxis.AbsoluteMaximum = SortedList.Count;
 
-            var valueAxis = new LinearAxis { Position = AxisPosition.Bottom, MinimumPadding = 0, MaximumPadding = 0.06, AbsoluteMinimum = 0, AbsoluteMaximum = valorMaximoX };
-            plotModel.Series.Add(barSeries);
-            plotModel.Axes.Add(categoryAxis);
-            plotModel.Axes.Add(valueAxis);
+                var valueAxis = new LinearAxis { Position = AxisPosition.Bottom, MinimumPadding = 0, MaximumPadding = 0.06, AbsoluteMinimum = 0, AbsoluteMaximum = valorMaximoX };
+                plotModel.Series.Add(barSeries);
+                plotModel.Axes.Add(categoryAxis);
+                plotModel.Axes.Add(valueAxis);
+                return plotModel;
+            }
 
-            return plotModel;
+            return null;
+            
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
